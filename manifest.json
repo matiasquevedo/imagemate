@@ -1,0 +1,40 @@
+{
+
+  "description": "Automatically detect if a URL is an image file and easily download it. Open pic in a new tabs, and change to that tab for download.",
+  "manifest_version": 2,
+  "name": "Imagemate",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "icons": {
+    "48": "icons/beasts-48.png"
+  },
+
+  "permissions": ["tabs", "storage", "webRequest", "<all_urls>"],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": []
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/mate-32.png",
+    "theme_icons": [{
+        "light": "icons/mate-32-light.png",
+        "dark": "icons/mate-32.png",
+        "size": 32
+    }],
+    "default_title": "Imagemate",
+    "default_popup": "popup/choose_beast.html"
+  },
+
+  "background": {
+      "scripts": ["content_scripts/beastify.js"]
+  },
+
+  "web_accessible_resources": [
+    "mate/*.jpg"
+  ]
+
+}
